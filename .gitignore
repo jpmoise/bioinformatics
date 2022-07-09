@@ -1,0 +1,7 @@
+/target
+/Cargo.lock
+/src/main.rs
+/src/alignment/global/nw_refactor_v0.rs
+/src/alignment/global/nw_refactor_v1.rs
+
+
