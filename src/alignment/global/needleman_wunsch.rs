@@ -71,22 +71,20 @@ impl Aligner {
 /// ```
 /// use bioinformatics::alignment::global::needleman_wunsch::needleman_wunsch;
 ///
-/// let (string1, string2) = needleman_wunsch("similarity", "molarity");
+/// let (string1, string2) = needleman_wunsch(b"similarity", b"molarity");
 /// assert_eq!(&string1,"similarity");
 /// assert_eq!(&string2,"--molarity");
 ///
 ///
-/// let (string3, string4) = needleman_wunsch("GAAAATAAAT", "GATAAT");
+/// let (string3, string4) = needleman_wunsch(b"GAAAATAAAT", b"GATAAT");
 /// assert_eq!(&string3,"GAAAATAAAT");
 /// assert_eq!(&string4,"G---AT-AAT");
 /// ```
-pub fn needleman_wunsch(seq1: &str, seq2: &str) -> (String, String) {
+pub fn needleman_wunsch(seq1: &[u8], seq2: &[u8]) -> (String, String) {
     //seq1 will always be larger
     if seq1.len() < seq2.len() {
         return needleman_wunsch(seq2, seq1);
     }
-    let seq1 = seq1.as_bytes();
-    let seq2 = seq2.as_bytes();
     //establish matrix dimensions from input
     let rows = seq1.len() + 1;
     let cols = seq2.len() + 1;
